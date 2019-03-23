@@ -1,0 +1,21 @@
+header {
+  background: #74ddff;
+  color: #1481a5;
+}
+
+.main {
+  background: #34717d;
+  height: calc(100vh - 99px);
+}
+
+.category {
+    background: #f2feff;
+    padding: 8px;
+    color: #0082a9;
+    border-radius: 0 0 4px 4px;
+}
+
+.category h3 {
+  margin-top: 0px;
+  border-bottom: 1px solid;
+}
