@@ -1,4 +1,5 @@
 <?php
+
 // Establish Habits class
 // Each Habits obj should
   // have name
@@ -30,7 +31,14 @@
     }
 
     function getName() {
-      echo $this->name ." <br/>";
+      echo $this->name;
+    }
+
+    function tracker() {
+      $weekdays = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+      foreach ($weekdays as $weekday) {
+        echo "<input type='checkbox'>";
+      }
     }
 
   }
@@ -42,7 +50,7 @@ $Exercise->setName('Exercise');
 $Read = new Habit();
 $Read->setName('Read');
 
-
+$habits = array($Meditate, $Exercise, $Read);
 
 
 ?>

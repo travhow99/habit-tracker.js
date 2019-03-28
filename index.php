@@ -24,9 +24,10 @@
     <div class="category">
       <h3>Main</h3>
       <ul>
-        <li>exercise</li>
-        <li><?php $Meditate->getName(); ?></li>
-        <li>read</li>
+        <?php foreach ($habits as $habit) { ?>
+          <li><?php echo $habit->getName();
+                    echo $habit->tracker(); ?></li>
+        <?php } ?>
       </ul>
     </div>
 
