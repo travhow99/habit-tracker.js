@@ -19,3 +19,18 @@ header {
   margin-top: 0px;
   border-bottom: 1px solid;
 }
+
+.habit-list {
+  list-style-type: none;
+}
+
+.habit-title {
+    font-size: 18px;
+    width: 15%;
+    display: inline-block;
+}
+
+.habit-list input[type='checkbox'] {
+  //margin: 0 4px;
+  width: calc(85% / 7 - 1px);
+}

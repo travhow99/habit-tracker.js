@@ -23,10 +23,10 @@
   <div class="container main">
     <div class="category">
       <h3>Main</h3>
-      <ul>
+      <ul class="habit-list">
         <?php foreach ($habits as $habit) { ?>
-          <li><?php echo $habit->getName();
-                    echo $habit->tracker(); ?></li>
+          <li><span class="habit-title"><?php echo $habit->getName(); ?></span>
+                  <?php  echo $habit->tracker(); ?></li>
         <?php } ?>
       </ul>
     </div>
