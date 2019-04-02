@@ -1,4 +1,9 @@
 <?php
+$weekdays = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+
+// Table Structure
+// habits
+// user_id week name goal category 
 
 // Establish Habits class
 // Each Habits obj should
@@ -35,9 +40,9 @@
     }
 
     function tracker() {
-      $weekdays = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+      global $weekdays;
       foreach ($weekdays as $weekday) {
-        echo "<input type='checkbox'>";
+        echo "<input type='checkbox' for={$weekday}>";
       }
     }
 

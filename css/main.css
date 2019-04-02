@@ -20,7 +20,13 @@ header {
   border-bottom: 1px solid;
 }
 
-.habit-list {
+.weekdays li {
+  display: inline-block;
+}
+
+
+
+.weekdays, .habit-list {
   list-style-type: none;
 }
 
@@ -30,7 +36,7 @@ header {
     display: inline-block;
 }
 
-.habit-list input[type='checkbox'] {
+.day-name, .habit-list input[type='checkbox'] {
   //margin: 0 4px;
   width: calc(85% / 7 - 1px);
 }

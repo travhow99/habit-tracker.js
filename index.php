@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Habit Tracker</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -23,6 +23,13 @@
   <div class="container main">
     <div class="category">
       <h3>Main</h3>
+      <table class="weekdays">
+        <tr>
+          <?php foreach ($weekdays as $weekday) { ?>
+            <td class="day-name"><?php echo $weekday ?></td>
+          <?php } ?>
+        </tr>
+      </table>
       <ul class="habit-list">
         <?php foreach ($habits as $habit) { ?>
           <li><span class="habit-title"><?php echo $habit->getName(); ?></span>
