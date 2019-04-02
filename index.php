@@ -33,12 +33,13 @@
       <ul class="habit-list">
         <?php foreach ($habits as $habit) { ?>
           <li><span class="habit-title"><?php echo $habit->getName(); ?></span>
-                  <?php  echo $habit->tracker(); ?></li>
+                  <?php  echo $habit->displayTracker(); ?></li>
         <?php } ?>
       </ul>
     </div>
 
   </div>
 
+  <script type="text/javascript" src="./index.js"></script>
 </body>
 </html>

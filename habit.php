@@ -3,7 +3,7 @@ $weekdays = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
 
 // Table Structure
 // habits
-// user_id week name goal category 
+// id user_id week name goal category
 
 // Establish Habits class
 // Each Habits obj should
@@ -15,12 +15,12 @@ $weekdays = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
 
   class Habit {
 
-    function setName($name) {
+    public function __construct ($name, $goal) {
       $this->name = $name;
+      $this->goal = $goal;
     }
 
     function setGoal($goal) {
-      $this->goal = $goal;
     }
 
     function setCategory($cat) {
@@ -39,21 +39,21 @@ $weekdays = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
       echo $this->name;
     }
 
-    function tracker() {
+    function displayTracker() {
       global $weekdays;
       foreach ($weekdays as $weekday) {
-        echo "<input type='checkbox' for={$weekday}>";
+        echo "<input type='checkbox' class='tracker-toggle' for={$weekday}>";
       }
     }
 
+    // Track clicks and update DB
+
+
   }
 
-$Meditate = new Habit();
-$Meditate->setName('Meditate');
-$Exercise = new Habit();
-$Exercise->setName('Exercise');
-$Read = new Habit();
-$Read->setName('Read');
+$Meditate = new Habit('Meditate', 7);
+$Exercise = new Habit('Exercise', 4);
+$Read = new Habit('Read', 3);
 
 $habits = array($Meditate, $Exercise, $Read);
 
