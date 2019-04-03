@@ -14,14 +14,16 @@ $(document).ready(function(){
       let data = {
         // week in php
         // User id in php
-        goal: $habit,
+        //name: '$habit',
+        goal: 5,
         day: $(this).attr('for'),
-        checked: $checkedLength,
+        checked: +$checkedLength,
         category: 'default',
       }
 
+      data.name = $habit;
 
-      console.log($checkedLength);
+      console.log(data);
 
 
 
