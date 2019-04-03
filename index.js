@@ -1,22 +1,41 @@
 $(document).ready(function(){
   $('.tracker-toggle').change(function(){
-      let $for = $(this).attr('for');
-
+      // see if checked
       let $checkedLength = $(this).is(':checked');
+      if ($checkedLength){
+          //alert('checked');
+      } else {
+          //alert('unchecked');
+      }
+
+      let $habit = $(this).siblings('.habit-title').text();
+      console.log($habit);
+
+      let data = {
+        // week in php
+        // User id in php
+        goal: $habit,
+        day: $(this).attr('for'),
+        checked: $checkedLength,
+        category: 'default',
+      }
+
 
       console.log($checkedLength);
 
-      if (1 == $checkedLength){
-          alert('checked');
-      } else {
-          alert('unchecked');
-      }
 
-      $.post('habit-form.php', $for, function(){
-        console.log(`${$checkedLength} ${$for}`);
+
+      $.post('habit-form.php', data, function(data){
+
+
+        // show the response
+        $('#response').html(data);
+          console.log(`${$checkedLength}`);
+        }).fail(function() {
+
+            // just in case posting your form failed
+            alert( "Posting failed." );
+
+        });
       });
   });
-
-
-
-});
