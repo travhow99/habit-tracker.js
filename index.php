@@ -1,7 +1,6 @@
 <?php
   include('habit.php');
 
-
 ?>
 
 <!DOCTYPE html>

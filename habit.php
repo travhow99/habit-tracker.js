@@ -7,31 +7,6 @@ include('config.php');
 
 $weekdays = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
 
-// Get user_id
-$user_id = 0;
-$week = date('W');
-$habitsArray = array();
-
-$result = mysqli_query($conn, "SELECT * FROM habits WHERE user_id=$user_id AND week=$week");
-
-if ($result){
-  // Fetch one and one row
-  while ($row=mysqli_fetch_array($result)) {
-    foreach ($weekdays as $weekday) {
-      if ($row[$weekday]) {
-        echo $row['name'].": ".$weekday;
-      }
-    }
-
-    array_push($habitsArray,$row['name']);
-  }
-}
-
-
-// Table Structure
-// habits
-// id user_id week name goal category
-
 // Establish Habits class
 // Each Habits obj should
   // have name
@@ -66,10 +41,23 @@ if ($result){
       echo $this->name;
     }
 
+
+    function getCurrent($weekday) {
+
+      $this->$weekday = 1;
+
+      //echo $weekday." ".$this->$weekday;
+
+    }
+
     function displayTracker() {
       global $weekdays;
       foreach ($weekdays as $weekday) {
-        echo "<input type='checkbox' class='tracker-toggle' for={$weekday}>";
+        if ($this->$weekday) {
+          echo "<input type='checkbox' class='tracker-toggle' for={$weekday} checked>";
+        } else {
+          echo "<input type='checkbox' class='tracker-toggle' for={$weekday}>";
+        }
       }
     }
 
@@ -77,13 +65,59 @@ if ($result){
 
   }
 
+
+// Get user_id
+$user_id = 0;
+$week = date('W');
+$habitsArray = array();
+
 $habits = array();
+
+
+$result = mysqli_query($conn, "SELECT * FROM habits WHERE user_id=$user_id AND week=$week");
+
+if ($result){
+  // Fetch one and one row
+  while ($row=mysqli_fetch_array($result)) {
+    //$row['name'] = array();
+    array_push($habitsArray,$row['name']);
+
+    $row['name'] = new Habit($row['name'], 3);
+
+    array_push($habits, $row['name']);
+
+    foreach ($weekdays as $weekday) {
+      if ($row[$weekday]) {
+        $row['name']->getCurrent($weekday);
+        //echo $row['name'].": ".$weekday;
+        //array_push($row['name'], $weekday);
+      }
+    }
+    //print_r($habitsArray);
+  }
+}
+
+
+// Table Structure
+// habits
+// id user_id week name goal category
+
+
 
 foreach ($habitsArray as $habit) {
   $name = $habit;
-  $name = new Habit($name, 3);
+  //echo $name;
+  //$name = new Habit($name, 3);
   array_push($habits, $name);
 }
+
+/* foreach ($habits as $habit) {
+  echo $habit->getName();
+} */
+
+
+ //print_r($habits);
+
 
 // $Meditate = new Habit('Meditate', 7);
 // $Exercise = new Habit('Exercise', 4);
