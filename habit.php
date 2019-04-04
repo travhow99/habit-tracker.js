@@ -1,5 +1,32 @@
 <?php
+include('config.php');
+  if (mysqli_connect_errno()){
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+
 $weekdays = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+
+// Get user_id
+$user_id = 0;
+$week = date('W');
+$habitsArray = array();
+
+$result = mysqli_query($conn, "SELECT * FROM habits WHERE user_id=$user_id AND week=$week");
+
+if ($result){
+  // Fetch one and one row
+  while ($row=mysqli_fetch_array($result)) {
+    foreach ($weekdays as $weekday) {
+      if ($row[$weekday]) {
+        echo $row['name'].": ".$weekday;
+      }
+    }
+
+    array_push($habitsArray,$row['name']);
+  }
+}
+
 
 // Table Structure
 // habits
@@ -46,16 +73,23 @@ $weekdays = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
       }
     }
 
-    // Track clicks and update DB
-
+    // Check db for previous checks
 
   }
 
-$Meditate = new Habit('Meditate', 7);
-$Exercise = new Habit('Exercise', 4);
-$Read = new Habit('Read', 3);
+$habits = array();
 
-$habits = array($Meditate, $Exercise, $Read);
+foreach ($habitsArray as $habit) {
+  $name = $habit;
+  $name = new Habit($name, 3);
+  array_push($habits, $name);
+}
+
+// $Meditate = new Habit('Meditate', 7);
+// $Exercise = new Habit('Exercise', 4);
+// $Read = new Habit('Read', 3);
+
+// $habits = array($Meditate, $Exercise, $Read);
 
 
 ?>
