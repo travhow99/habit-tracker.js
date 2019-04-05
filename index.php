@@ -32,15 +32,16 @@
         </tr>
       </table>
       <ul class="habit-list">
-        <?php foreach ($habits as $habit) { ?>
+        <?php
+        //print_r($habits);
+        foreach ($habits as $habit) { ?>
           <li><span class="habit-title"><?php echo $habit->getName(); ?></span>
                   <?php  echo $habit->displayTracker(); ?></li>
         <?php } ?>
       </ul>
     </div>
-
   </div>
 
-  <script type="text/javascript" src="./index.js"></script>
+  <script type="text/javascript" src="index.js"></script>
 </body>
 </html>

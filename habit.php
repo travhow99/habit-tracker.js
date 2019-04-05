@@ -53,8 +53,8 @@ $weekdays = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
     function displayTracker() {
       global $weekdays;
       foreach ($weekdays as $weekday) {
-        if ($this->$weekday) {
-          echo "<input type='checkbox' class='tracker-toggle' for={$weekday} checked>";
+        if (isset($this->$weekday) && $this->$weekday === 1) {
+          echo "<input type='checkbox' class='tracker-toggle active' for={$weekday}>";
         } else {
           echo "<input type='checkbox' class='tracker-toggle' for={$weekday}>";
         }
@@ -104,12 +104,8 @@ if ($result){
 
 
 
-foreach ($habitsArray as $habit) {
-  $name = $habit;
-  //echo $name;
-  //$name = new Habit($name, 3);
-  array_push($habits, $name);
-}
+
+
 
 /* foreach ($habits as $habit) {
   echo $habit->getName();

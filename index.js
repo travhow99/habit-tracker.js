@@ -1,5 +1,9 @@
-$(document).ready(function(){
+$(document).ready(function() {
+  checkBoxes();
+
+
   $('.tracker-toggle').change(function(){
+
       // see if checked
       let $checkedLength = $(this).is(':checked');
       if ($checkedLength){
@@ -27,17 +31,22 @@ $(document).ready(function(){
 
 
 
-      $.post('habit-form.php', data, function(data){
+    $.post('habit-form.php', data, function(data){
 
 
-        // show the response
-        $('#response').html(data);
-          console.log(`${$checkedLength}`);
-        }).fail(function() {
+      // show the response
+      $('#response').html(data);
+        console.log(`${$checkedLength}`);
+      }).fail(function() {
 
-            // just in case posting your form failed
-            alert( "Posting failed." );
+          // just in case posting your form failed
+          alert( "Posting failed." );
 
-        });
       });
-  });
+    });
+});
+
+function checkBoxes() {
+  console.log('check');
+  $('.active').prop('checked', true);
+}
