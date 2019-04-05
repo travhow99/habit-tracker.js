@@ -38,8 +38,9 @@ $weekdays = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
     }
 
     function getName() {
-      echo $this->name;
+      echo $this->name." (".$this->goal.")";
     }
+
 
 
     function getCurrent($weekday) {
@@ -79,7 +80,7 @@ if ($result){
     //$row['name'] = array();
     array_push($habitsArray,$row['name']);
 
-    $row['name'] = new Habit($row['name'], 3);
+    $row['name'] = new Habit($row['name'], $row['goal']);
 
     array_push($habits, $row['name']);
 
