@@ -49,8 +49,8 @@
   <div class="habit-form">
     <form class="" action="new-habit.php" method="post">
       <label>What habit do you want to add?</label><input type="text" name="name" value=""><br>
-      <label>How many times a week do you want to do this?</label><input type="text" name="goal" value="">
-      <input type="submit" value="Submit">
+      <label>How many times a week do you want to do this?</label><input type="number" name="goal" value="">
+      <input id="newHabitSubmit" type="submit" value="Submit">
     </form>
   </div>
   <div class="overlay">

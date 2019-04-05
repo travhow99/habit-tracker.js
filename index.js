@@ -21,7 +21,7 @@ $(document).ready(function() {
         goal: 5,
         day: $(this).attr('for'),
         checked: +$checkedLength,
-        category: 'default',
+        category: 'main',
       }
 
       data.name = $habit;
@@ -32,10 +32,6 @@ $(document).ready(function() {
 
     $.post('habit-form.php', data, function(data){
 
-
-      // show the response
-      $('#response').html(data);
-        console.log(`${$checkedLength}`);
       }).fail(function() {
 
           // just in case posting your form failed
@@ -49,6 +45,32 @@ $(document).ready(function() {
       $('.overlay').show();
       $('.habit-form').show();
     });
+
+    $('#newHabitSubmit').click(function(event) {
+      event.preventDefault();
+      //console.log();
+      const $name = $('.habit-form input[name="name"]').val();
+      const $goal = $('.habit-form input[name="goal"]').val();
+
+      const data = {
+        name: $name,
+        goal: $goal,
+      }
+      console.log(data);
+
+      $.post('new-habit.php', data, function(data){
+
+
+        // show the response
+        //$('#response').html(data);
+          //console.log(`${$checkedLength}`);
+        }).fail(function() {
+
+            // just in case posting your form failed
+            alert( "Posting failed." );
+
+        });
+      });
 });
 
 function checkBoxes() {
