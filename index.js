@@ -70,6 +70,11 @@ $(document).ready(function() {
             alert( "Posting failed." );
 
         });
+        location.reload();
+
+        $('.overlay').hide();
+        $('.habit-form').hide();
+
       });
 });
 
