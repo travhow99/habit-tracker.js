@@ -6,7 +6,6 @@
 
   $week = date('W');
 
-  echo "test";
   $name = $_POST['name'];
   $goal = $_POST['goal'];
   $day = $_POST['day'];

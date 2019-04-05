@@ -39,7 +39,21 @@
                   <?php  echo $habit->displayTracker(); ?></li>
         <?php } ?>
       </ul>
+      <div class="btn-container">
+        <a class="btn btn-success add-new">New Habit</a>
+      </div>
     </div>
+  </div>
+
+  <!-- Add new popup form !-->
+  <div class="habit-form">
+    <form class="" action="new-habit.php" method="post">
+      <label>What habit do you want to add?</label><input type="text" name="name" value=""><br>
+      <label>How many times a week do you want to do this?</label><input type="text" name="goal" value="">
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  <div class="overlay">
   </div>
 
   <script type="text/javascript" src="index.js"></script>

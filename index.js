@@ -1,7 +1,6 @@
 $(document).ready(function() {
   checkBoxes();
 
-
   $('.tracker-toggle').change(function(){
 
       // see if checked
@@ -43,6 +42,12 @@ $(document).ready(function() {
           alert( "Posting failed." );
 
       });
+    });
+
+    // Add new button
+    $('.add-new').click(function() {
+      $('.overlay').show();
+      $('.habit-form').show();
     });
 });
 

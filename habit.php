@@ -60,9 +60,6 @@ $weekdays = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
         }
       }
     }
-
-    // Check db for previous checks
-
   }
 
 
