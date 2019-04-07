@@ -38,10 +38,12 @@ $weekdays = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
     }
 
     function getName() {
-      echo $this->name." (".$this->goal.")";
+      echo $this->name;
     }
 
-
+    function showGoal() {
+      echo " <sup>(".$this->goal.")</sup>";
+    }
 
     function getCurrent($weekday) {
 

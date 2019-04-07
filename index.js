@@ -11,7 +11,7 @@ $(document).ready(function() {
           //alert('unchecked');
       }
 
-      let $habit = $(this).siblings('.habit-title').text();
+      let $habit = $(this).siblings('.habit-name').children('.habit-title').text();
       console.log($habit);
 
       let data = {

@@ -24,13 +24,21 @@ header {
   display: inline-block;
 }
 
+.habit-list {
+  padding-left: 10px;
+}
+
 .weekdays, .habit-list {
   list-style-type: none;
 }
 
+.habit-name {
+    display: inline-block;
+    width: 15%;
+}
+
 .habit-title {
     font-size: 18px;
-    width: 15%;
     display: inline-block;
 }
 

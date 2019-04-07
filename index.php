@@ -35,7 +35,10 @@
         <?php
         //print_r($habits);
         foreach ($habits as $habit) { ?>
-          <li><span class="habit-title"><?php echo $habit->getName(); ?></span>
+          <li>
+            <div class="habit-name">
+              <span class="habit-title"><?php echo $habit->getName(); ?></span><?php echo $habit->showGoal(); ?>
+            </div>
                   <?php  echo $habit->displayTracker(); ?></li>
         <?php } ?>
       </ul>
