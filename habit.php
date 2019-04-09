@@ -4,6 +4,25 @@ include('config.php');
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
+  $sql = CREATE TABLE IF NOT EXISTS habits (
+      id     INT AUTO_INCREMENT PRIMARY KEY,
+      user_id INT NOT NULL,
+      week INT NOT NULL,
+      name VARCHAR (255) NOT NULL,
+      goal INT (11) NOT NULL,
+      category VARCHAR (255) NOT NULL,
+      Sunday tinyint (1) DEFAULT NULL,
+      Monday tinyint (1) DEFAULT NULL,
+      Tuesday tinyint (1) DEFAULT NULL,
+      Wednesday tinyint (1) DEFAULT NULL,
+      Thursday tinyint (1) DEFAULT NULL,
+      Friday tinyint (1) DEFAULT NULL,
+      Saturday tinyint (1) DEFAULT NULL
+  );
+
+  $table = mysqli_query($conn, $sql);
+
+
 
 $weekdays = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
 
