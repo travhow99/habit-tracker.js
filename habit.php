@@ -4,7 +4,7 @@ include('config.php');
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-  $sql = CREATE TABLE IF NOT EXISTS habits (
+  $sql = 'CREATE TABLE IF NOT EXISTS habits (
       id     INT AUTO_INCREMENT PRIMARY KEY,
       user_id INT NOT NULL,
       week INT NOT NULL,
@@ -18,7 +18,7 @@ include('config.php');
       Thursday tinyint (1) DEFAULT NULL,
       Friday tinyint (1) DEFAULT NULL,
       Saturday tinyint (1) DEFAULT NULL
-  );
+  )';
 
   $table = mysqli_query($conn, $sql);
 
@@ -91,7 +91,6 @@ $week = date('W');
 $habitsArray = array();
 
 $habits = array();
-
 
 $result = mysqli_query($conn, "SELECT * FROM habits WHERE user_id=$user_id AND week=$week");
 
