@@ -2,6 +2,19 @@ $(document).ready(function() {
   checkBoxes();
 
   $('.tracker-toggle').change(function(){
+   Swal.fire({
+      title: 'Multiple inputs',
+      html:
+        '<input id="swal-input1" class="swal2-input">' +
+        '<input id="swal-input2" class="swal2-input">',
+      focusConfirm: false,
+      preConfirm: () => {
+        return [
+          document.getElementById('swal-input1').value,
+          document.getElementById('swal-input2').value
+        ]
+      }
+    });
 
       // see if checked
       let $checkedLength = $(this).is(':checked');
@@ -75,10 +88,10 @@ $(document).ready(function() {
         $('.overlay').hide();
         $('.habit-form').hide();
 
-      });
+       });
 });
 
 function checkBoxes() {
   console.log('check');
   $('.active').prop('checked', true);
-}
+};
