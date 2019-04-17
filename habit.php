@@ -75,11 +75,13 @@ $weekdays = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
     function displayTracker() {
       global $weekdays;
       foreach ($weekdays as $weekday) {
+        echo "<div class='tracker-container'>";
         if (isset($this->$weekday) && $this->$weekday === 1) {
-          echo "<input type='checkbox' class='tracker-toggle active' for={$weekday}>";
+          echo "<a class='tracker-toggle active' for={$weekday}></a>";
         } else {
-          echo "<input type='checkbox' class='tracker-toggle' for={$weekday}>";
+          echo "<a class='tracker-toggle' for={$weekday}></a>";
         }
+        echo "</div>";
       }
     }
   }

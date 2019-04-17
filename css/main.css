@@ -42,8 +42,17 @@ header {
     display: inline-block;
 }
 
-.day-name, .habit-list input[type='checkbox'] {
-  width: calc(85% / 7 - 1px);
+.tracker-container {
+  display: inline-block;
+  background: white;
+  border: 3px #0082a9 solid;
+  height: 25px;
+  margin: 0 2px;
+  vertical-align: middle;
+}
+
+.day-name, .tracker-container {
+  width: calc(85% / 7 - 5px);
 }
 
 .btn-container {
