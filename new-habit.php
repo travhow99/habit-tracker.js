@@ -11,8 +11,17 @@
   //echo $name.$goal.$cat;
 
   $sql = "INSERT INTO habits(user_id, week, name, goal, category) VALUES (0, $week, '$name', $goal, '$cat')";
-  mysqli_query($conn, $sql);
+  $result = mysqli_query($conn, $sql);
+  //var_dump($result);
 
+  if ($result) {
+    array_push($habitsArray,$name);
+
+    $name = new Habit($name, $goal);
+
+    array_push($habits, $name);
+
+  }
   
 
 /*

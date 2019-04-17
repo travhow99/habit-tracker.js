@@ -2,7 +2,7 @@ $(document).ready(function() {
   checkBoxes();
 
   $('.tracker-toggle').change(function(){
-   Swal.fire({
+/*    Swal.fire({
       title: 'Multiple inputs',
       html:
         '<input id="swal-input1" class="swal2-input">' +
@@ -14,7 +14,7 @@ $(document).ready(function() {
           document.getElementById('swal-input2').value
         ]
       }
-    });
+    }); */
 
       // see if checked
       let $checkedLength = $(this).is(':checked');

@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="./css/main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 </head>
 <body>
 
@@ -50,11 +49,27 @@
   </div>
 
   <!-- Add new popup form !-->
-  <div class="habit-form">
-    <form class="" action="new-habit.php" method="post">
-      <label>What habit do you want to add?</label><input type="text" name="name" value=""><br>
-      <label>How many times a week do you want to do this?</label><input type="number" name="goal" value="">
-      <input id="newHabitSubmit" type="submit" value="Submit">
+  <div class="habit-form">          
+    <form action="new-habit.php" method="POST" role="form">
+      <legend>Let's add a new habit</legend>
+    
+      <div class="form-group">
+        <label for="">What habit do you want to add?</label>
+        <input type="text" name="name" class="form-control" id="" placeholder="New Habit">
+      </div>
+
+      <div class="form-group">
+        <label for="">How many times a week do you want to do this?</label>
+        <input type="number" name="goal" class="form-control" id="" placeholder="Habit Goal">
+      </div>
+			
+			<label for="">Choose a label for your new habit!</label>
+      <select name="category" id="categoryInput" class="form-control" placeholer="Category">
+        <option default disabled selected>Category</option>
+				<option value="10000">New Category</option>
+      </select>
+			<br>
+      <button id="newHabitSubmit"  type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
   <div class="overlay">
