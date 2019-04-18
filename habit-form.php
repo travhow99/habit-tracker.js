@@ -17,7 +17,7 @@
   if (mysqli_fetch_row($result)) {
  */    
   
-  $sql = "UPDATE `habits` SET `user_id`=0, `week`=$week, `name`='$name', `goal`=$goal, `category`='$cat', $`day`=$checked WHERE `week`=$week AND `name`='$name'";
+  $sql = "UPDATE `habits` SET `week`=$week, `category`='$cat', `$day`=$checked WHERE `week`=$week AND `name`='$name'";
     mysqli_query($conn, $sql);
 /* 
   } else {

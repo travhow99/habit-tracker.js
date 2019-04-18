@@ -2,30 +2,26 @@ $(document).ready(function() {
   checkBoxes();
 
   $('.tracker-toggle').click(function(){
-      // see if checked
-      let $checkedLength = $(this).is(':checked');
-      
+      // see if checked      
       let isChecked = $(this).hasClass('active');
       console.log(isChecked);
       
-      
+      isChecked ? ($(this).removeClass('active'), $(this).empty()) : ($(this).addClass('active'), $(this).append('<i class="fas fa-check-circle"></i>'));
 
-      let $habit = $(this).siblings('.habit-name').children('.habit-title').text();
+      let $habit = $(this).parent().siblings('.habit-name').children('.habit-title').text();
       console.log($habit);
 
       let data = {
         // week in php
         // User id in php
         //name: '$habit',
-        goal: 5,
         day: $(this).attr('for'),
-        checked: +$checkedLength,
+        checked: +!isChecked,
         category: 'main',
       }
 
       data.name = $habit;
 
-      console.log(data);
 
 
 
@@ -95,7 +91,7 @@ $(document).ready(function() {
             alert( "Posting failed." );
 
         });
-        //location.reload();
+        location.reload();
 
         $('.overlay').hide();
         $('.habit-form').hide();
