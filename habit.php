@@ -77,7 +77,7 @@ $weekdays = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
       foreach ($weekdays as $weekday) {
         echo "<div class='tracker-container'>";
         if (isset($this->$weekday) && $this->$weekday === 1) {
-          echo "<a class='tracker-toggle active' for={$weekday}></a>";
+          echo "<a class='tracker-toggle active' for={$weekday}><i class='fas fa-check-circle'></i></a>";
         } else {
           echo "<a class='tracker-toggle' for={$weekday}></a>";
         }

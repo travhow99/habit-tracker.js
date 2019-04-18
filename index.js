@@ -1,28 +1,14 @@
 $(document).ready(function() {
   checkBoxes();
 
-  $('.tracker-toggle').change(function(){
-/*    Swal.fire({
-      title: 'Multiple inputs',
-      html:
-        '<input id="swal-input1" class="swal2-input">' +
-        '<input id="swal-input2" class="swal2-input">',
-      focusConfirm: false,
-      preConfirm: () => {
-        return [
-          document.getElementById('swal-input1').value,
-          document.getElementById('swal-input2').value
-        ]
-      }
-    }); */
-
+  $('.tracker-toggle').click(function(){
       // see if checked
       let $checkedLength = $(this).is(':checked');
-      if ($checkedLength){
-          //alert('checked');
-      } else {
-          //alert('unchecked');
-      }
+      
+      let isChecked = $(this).hasClass('active');
+      console.log(isChecked);
+      
+      
 
       let $habit = $(this).siblings('.habit-name').children('.habit-title').text();
       console.log($habit);
@@ -63,11 +49,37 @@ $(document).ready(function() {
       event.preventDefault();
       //console.log();
       const $name = $('.habit-form input[name="name"]').val();
+      const $nameField = $('.habit-form input[name="name"]').parent();
       const $goal = $('.habit-form input[name="goal"]').val();
+      const $goalField = $('.habit-form input[name="goal"]').parent();
+      const $category = $('#categoryInput').val();
+      const $categoryField = $('#categoryInput').parent();
+
+      const formInput = [{input: $name, field: $nameField}, {input: $goal, field: $goalField}, {input: $category, field: $categoryField}];
+
+      let error = false;
+
+      for (let x in formInput) {
+        let {input, field} = formInput[x];
+
+        console.log(input, field);
+
+        if (input === "" || input === null) {
+          field.addClass('input-error');
+          field.children('.fa-exclamation-circle').removeClass('fa-hidden');
+          console.log('danger');
+          error = true;
+        }
+      }
+
+      if (error) {
+        return false;
+      }
 
       const data = {
         name: $name,
         goal: $goal,
+        category: $category
       }
       console.log(data);
 
@@ -83,7 +95,7 @@ $(document).ready(function() {
             alert( "Posting failed." );
 
         });
-        location.reload();
+        //location.reload();
 
         $('.overlay').hide();
         $('.habit-form').hide();

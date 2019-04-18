@@ -44,11 +44,19 @@ header {
 
 .tracker-container {
   display: inline-block;
-  background: white;
-  border: 3px #0082a9 solid;
   height: 25px;
   margin: 0 2px;
   vertical-align: middle;
+  text-align: center;
+}
+
+.tracker-toggle {
+  background: white;
+  border: 3px #0082a9 solid;
+  width: 25px;
+  height: 100%;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .day-name, .tracker-container {
@@ -70,6 +78,20 @@ header {
     min-height: 340px;
     padding: 20px;
     z-index: 3;
+}
+
+.input-error, .fa-exclamation-circle {
+  color: #a94442;
+}
+
+.fa-hidden {
+  display: none!important;
+}
+
+.input-error .form-control {
+  border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 }
 
 .overlay {
