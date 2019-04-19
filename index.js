@@ -63,15 +63,21 @@ $(document).ready(function() {
       const $goalField = $('.habit-form input[name="goal"]').parent();
       const $category = $('#categoryInput').val();
       const $categoryField = $('#categoryInput').parent();
+      const $newCategory = $('#newCategoryInput input').val();
+      const $newCategoryField = $('#newCategoryInput');
 
       const formInput = [{input: $name, field: $nameField}, {input: $goal, field: $goalField}, {input: $category, field: $categoryField}];
+      
+      if ($('#newCategoryInput').length) {
+        formInput.push({input: $newCategory, field: $newCategoryField});
+      }
+
+      console.log(formInput);
 
       let error = false;
 
       for (let x in formInput) {
         let {input, field} = formInput[x];
-
-        console.log(input, field);
 
         if (input === "" || input === null) {
           field.addClass('input-error');
