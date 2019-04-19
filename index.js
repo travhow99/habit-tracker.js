@@ -85,6 +85,8 @@ $(document).ready(function() {
         // show the response
         //$('#response').html(data);
           //console.log(`${$checkedLength}`);
+        }).done(function() {
+          location.reload();
         }).fail(function() {
 
             // just in case posting your form failed
