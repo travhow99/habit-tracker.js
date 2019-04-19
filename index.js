@@ -41,6 +41,19 @@ $(document).ready(function() {
       $('.habit-form').show();
     });
 
+    $('#categoryInput').change(function() {
+      const categoryInput = `<div class="form-group" id="newCategoryInput">
+      <label for="">Enter a name for your new category:</label>  <i class="fa-hidden fas fa-exclamation-circle"></i>
+      <input type="text" name="category" class="form-control" id="" placeholder="New Category">
+    </div>`
+      const $selected = $(this).val();
+      if ($selected == 10000) {
+        $(this).parent().after(categoryInput);
+      } else {
+        $("#newCategoryInput").remove();
+      }
+    });
+
     $('#newHabitSubmit').click(function(event) {
       event.preventDefault();
       //console.log();
