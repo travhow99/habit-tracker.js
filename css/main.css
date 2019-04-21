@@ -5,12 +5,12 @@ header {
 
 .main {
   background: #34717d;
-  height: calc(100vh - 99px);
 }
 
 .category {
     background: #f2feff;
     padding: 8px;
+    margin: 10px;
     color: #0082a9;
     border-radius: 0 0 4px 4px;
 }

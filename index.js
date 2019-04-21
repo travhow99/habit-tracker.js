@@ -111,7 +111,7 @@ $(document).ready(function() {
         //$('#response').html(data);
           //console.log(`${$checkedLength}`);
         }).done(function() {
-          //location.reload();
+          location.reload();
         }).fail(function() {
 
             // just in case posting your form failed

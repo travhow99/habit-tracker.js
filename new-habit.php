@@ -17,7 +17,7 @@
   if ($result) {
     array_push($habitsArray,$name);
 
-    $name = new Habit($name, $goal);
+    $name = new Habit($name, $goal, $cat);
 
     array_push($habits, $name);
 
