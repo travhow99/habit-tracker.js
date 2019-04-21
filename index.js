@@ -91,10 +91,12 @@ $(document).ready(function() {
         return false;
       }
 
+      console.log($newCategory);
+
       const data = {
         name: $name,
         goal: $goal,
-        category: $category
+        category: $newCategory,
       }
       console.log(data);
 
@@ -105,14 +107,14 @@ $(document).ready(function() {
         //$('#response').html(data);
           //console.log(`${$checkedLength}`);
         }).done(function() {
-          location.reload();
+          //location.reload();
         }).fail(function() {
 
             // just in case posting your form failed
             alert( "Posting failed." );
 
         });
-        location.reload();
+        //location.reload();
 
         $('.overlay').hide();
         $('.habit-form').hide();

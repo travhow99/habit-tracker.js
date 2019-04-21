@@ -4,9 +4,9 @@
 
   $week = date('W');
 
-  $name = $_POST['name'];
-  $goal = $_POST['goal'];
-  $cat = 'main';
+  $name = $_POST[name];
+  $goal = $_POST[goal];
+  $cat = $_POST[category];
 
   //echo $name.$goal.$cat;
 
