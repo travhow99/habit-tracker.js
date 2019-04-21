@@ -36,9 +36,10 @@ $weekdays = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
 
   class Habit {
 
-    public function __construct ($name, $goal) {
+    public function __construct ($name, $goal, $cat) {
       $this->name = $name;
       $this->goal = $goal;
+      $this->cat = $cat;
     }
 
     function setGoal($goal) {
@@ -102,7 +103,7 @@ if ($result){
     //$row['name'] = array();
     array_push($habitsArray,$row['name']);
 
-    $row['name'] = new Habit($row['name'], $row['goal']);
+    $row['name'] = new Habit($row['name'], $row['goal'], $row['category']);
 
     array_push($habits, $row['name']);
 

@@ -10,14 +10,13 @@
   $goal = $_POST['goal'];
   $day = $_POST['day'];
   $checked = $_POST['checked'];
-  $cat = $_POST['category'];
 
   // this form should only update previously added goals
 /*   $result = mysqli_query($conn, "SELECT 1 FROM habits WHERE week=$week AND name='$name' LIMIT 1");
   if (mysqli_fetch_row($result)) {
  */    
   
-  $sql = "UPDATE `habits` SET `week`=$week, `category`='$cat', `$day`=$checked WHERE `week`=$week AND `name`='$name'";
+  $sql = "UPDATE `habits` SET `week`=$week, `$day`=$checked WHERE `week`=$week AND `name`='$name'";
     mysqli_query($conn, $sql);
 /* 
   } else {

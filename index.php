@@ -6,14 +6,16 @@
 
   $result = mysqli_query($conn, $sql);
 
+  $categories = array();
+
   $dropdown = '<select name="category" id="categoryInput" class="form-control" placeholer="Category">';
 
   while ($row=mysqli_fetch_array($result)) {
     $dropdown.="<option value='{$row[category]}'>{$row[category]}</option>";
+    array_push($categories, $row[category]);
   }
 
   $dropdown.='<option value="10000">New Category</option></select>';
-
 
 ?>
 
@@ -37,29 +39,32 @@
   </header>
 
   <div class="container main">
-    <div class="category">
-      <h3>Main</h3>
-      <table class="weekdays">
-        <tr>
-          <?php foreach ($weekdays as $weekday) { ?>
-            <td class="day-name"><?php echo $weekday ?></td>
-          <?php } ?>
-        </tr>
-      </table>
-      <ul class="habit-list">
-        <?php
-        //print_r($habits);
-        foreach ($habits as $habit) { ?>
-          <li>
-            <div class="habit-name">
-              <span class="habit-title"><?php echo $habit->getName(); ?></span><?php echo $habit->showGoal(); ?>
-            </div>
-                  <?php  echo $habit->displayTracker(); ?></li>
-        <?php } ?>
-      </ul>
-      <div class="btn-container">
-        <a class="btn btn-success add-new">New Habit</a>
+    <?php foreach ($categories as $category) { ?>
+      <div class="category">
+        <h3> <?php echo $category; ?> </h3>
+        <div class="weekend-container">
+          <div class="habit-name"></div>
+            <?php foreach ($weekdays as $weekday) { ?>
+              <a class="day-name"><?php echo $weekday ?></a>
+            <?php } ?>
+          </div>
+        <ul class="habit-list">
+          <?php
+          foreach ($habits as $habit) {
+            if ($category == $habit->cat) { ?>
+            <li>
+              <div class="habit-name">
+                <span class="habit-title"><?php echo $habit->getName(); ?></span><?php echo $habit->showGoal(); ?>
+              </div>
+                    <?php  echo $habit->displayTracker(); ?>
+              </li>
+          <?php }
+          } ?>
+        </ul>
       </div>
+    <?php } ?>
+    <div class="btn-container">
+      <a class="btn btn-success add-new">New Habit</a>
     </div>
   </div>
 

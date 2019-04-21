@@ -17,7 +17,6 @@ $(document).ready(function() {
         //name: '$habit',
         day: $(this).attr('for'),
         checked: +!isChecked,
-        category: 'main',
       }
 
       data.name = $habit;

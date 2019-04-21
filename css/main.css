@@ -59,6 +59,15 @@ header {
   cursor: pointer;
 }
 
+.weekend-container {
+  padding-left: 10px;
+}
+
+.day-name {
+  display: inline-block;
+  text-align: center;
+}
+
 .day-name, .tracker-container {
   width: calc(85% / 7 - 5px);
 }
