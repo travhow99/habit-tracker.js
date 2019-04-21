@@ -41,6 +41,11 @@ $(document).ready(function() {
       $('.habit-form').show();
     });
 
+    $('.close-button').click(function() {
+      $('.overlay').hide();
+      $('.habit-form').hide();
+    });
+
     $('#categoryInput').change(function() {
       const categoryInput = `<div class="form-group" id="newCategoryInput">
       <label for="">Enter a name for your new category:</label>  <i class="fa-hidden fas fa-exclamation-circle"></i>
@@ -96,7 +101,7 @@ $(document).ready(function() {
       const data = {
         name: $name,
         goal: $goal,
-        category: $newCategory,
+        category: $newCategory ? $newCategory : $category,
       }
       console.log(data);
 

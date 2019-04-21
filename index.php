@@ -1,6 +1,20 @@
 <?php
   include('habit.php');
 
+  // Build category dropown
+  $sql = "SELECT DISTINCT `category` FROM `habits`";
+
+  $result = mysqli_query($conn, $sql);
+
+  $dropdown = '<select name="category" id="categoryInput" class="form-control" placeholer="Category">';
+
+  while ($row=mysqli_fetch_array($result)) {
+    $dropdown.="<option value='{$row[category]}'>{$row[category]}</option>";
+  }
+
+  $dropdown.='<option value="10000">New Category</option></select>';
+
+
 ?>
 
 <!DOCTYPE html>
@@ -66,15 +80,17 @@
 			
 			<div class="form-group">
 			<label for="">Choose a label for your new habit!</label>  <i class="fa-hidden fas fa-exclamation-circle"></i>
-				<select name="category" id="categoryInput" class="form-control" placeholer="Category">
+      <?php echo $dropdown; ?>
+				<!-- <select name="category" id="categoryInput" class="form-control" placeholer="Category">
 					<option default disabled selected>Category</option>
 					<option value="10000">New Category</option>
-				</select>
+				</select> -->
 			</div>
       <button id="newHabitSubmit"  type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
   <div class="overlay">
+          <a class="close-button"><i class="fas fa-times-circle fa-2x"></i></a>
   </div>
 
   <script type="text/javascript" src="index.js"></script>

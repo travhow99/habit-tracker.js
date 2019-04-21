@@ -80,6 +80,10 @@ header {
     z-index: 3;
 }
 
+.fas {
+  line-height: 1.42857143 !important;
+}
+
 .input-error, .fa-exclamation-circle {
   color: #a94442;
 }
@@ -105,4 +109,16 @@ header {
   bottom: 0;
   background-color: rgba(0,0,0,0.5);
   z-index: 2;
+}
+
+.close-button {
+  position: absolute;
+  right: 40px;
+  top: 10px;
+  color: #b15b5b;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #5a3434;
 }
