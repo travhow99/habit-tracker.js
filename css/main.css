@@ -5,6 +5,7 @@ header {
 
 .main {
   background: #34717d;
+  min-height: 100vh;
 }
 
 .category {
@@ -74,6 +75,7 @@ header {
 
 .btn-container {
   text-align: right;
+  margin-bottom: 20px;
 }
 
 .habit-form {

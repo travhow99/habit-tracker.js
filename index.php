@@ -1,4 +1,13 @@
 <?php
+  // TO DO
+  // Mark entries as repeating to automatically show the next week
+  // Add button in each category without submit button
+  // Edit button for name/goal/category of each habit
+  // Warning colors/push updates when goal is close to not being met
+    // Muting/updating of individual notifications
+  // Separate spending category to add transactions, with bar showing weekly budget allotment
+  
+
   include('habit.php');
 
   // Build category dropown
