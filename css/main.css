@@ -27,6 +27,7 @@ header {
 
 .habit-list {
   padding-left: 10px;
+  margin: 30px 0;
 }
 
 .weekdays, .habit-list {
@@ -67,10 +68,25 @@ header {
 .day-name {
   display: inline-block;
   text-align: center;
+  transform: rotate(-45deg);
+  text-align: left;
+  left: 25px;
+  position: relative;
+  border-bottom: 1px solid;
 }
 
 .day-name, .tracker-container {
   width: calc(85% / 7 - 5px);
+}
+
+.add-row {
+  position: relative;
+}
+
+.add-button {
+  position: absolute;
+  right: -8px;
+  bottom: -8px;
 }
 
 .btn-container {

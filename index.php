@@ -54,7 +54,7 @@
         <div class="weekend-container">
           <div class="habit-name"></div>
             <?php foreach ($weekdays as $weekday) { ?>
-              <a class="day-name"><?php echo $weekday ?></a>
+              <span class="day-name"><?php echo $weekday ?></span>
             <?php } ?>
           </div>
         <ul class="habit-list">
@@ -70,6 +70,10 @@
           <?php }
           } ?>
         </ul>
+        <div class="add-row">
+          <span class="habit-name">&nbsp;</span>
+          <a class="btn btn-primary add-button"><i class="fas fa-plus-circle"></i></a>
+        </div>
       </div>
     <?php } ?>
     <div class="btn-container">
