@@ -1,6 +1,10 @@
 $(document).ready(function() {
   checkBoxes();
 
+  $('.add-button').click(function() {
+    $(this).siblings('.habit-name').addClass('editable');
+  });
+
   $('.tracker-toggle').click(function(){
       // see if checked      
       let isChecked = $(this).hasClass('active');

@@ -87,6 +87,23 @@ header {
   position: absolute;
   right: -8px;
   bottom: -8px;
+  border-radius: 4px 0 0 0;
+}
+
+input.habit-name {
+  background: transparent;
+  border: none;
+  display: none;
+}
+
+input.habit-name:focus {
+  outline: none;
+}
+
+input.habit-name.editable {
+  border-bottom: 2px solid;
+  display: inline-block;
+  caret-color: #0082a9;
 }
 
 .btn-container {

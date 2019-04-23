@@ -71,7 +71,7 @@
           } ?>
         </ul>
         <div class="add-row">
-          <span class="habit-name">&nbsp;</span>
+          <input class="habit-name">&nbsp;</input>
           <a class="btn btn-primary add-button"><i class="fas fa-plus-circle"></i></a>
         </div>
       </div>
