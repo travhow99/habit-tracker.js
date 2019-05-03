@@ -10,22 +10,6 @@
 
   include('habit.php');
 
-  // Build category dropown
-  $sql = "SELECT DISTINCT `category` FROM `habits`";
-
-  $result = mysqli_query($conn, $sql);
-
-  $categories = array();
-
-  $dropdown = '<select name="category" id="categoryInput" class="form-control" placeholer="Category">';
-
-  while ($row=mysqli_fetch_array($result)) {
-    $dropdown.="<option value='{$row[category]}'>{$row[category]}</option>";
-    array_push($categories, $row[category]);
-  }
-
-  $dropdown.='<option value="10000">New Category</option></select>';
-
 ?>
 
 <!DOCTYPE html>
@@ -59,6 +43,7 @@
   </header>
 
   <div class="container main">
+    <?php include('categories.php'); ?>
     <?php foreach ($categories as $category) { ?>
       <div class="category">
         <h3><?php echo $category; ?></h3>
@@ -76,7 +61,7 @@
               <div class="habit-name">
                 <span class="habit-title"><?php echo $habit->getName(); ?></span><?php echo $habit->showGoal(); ?>
               </div>
-                    <?php  echo $habit->displayTracker(); ?>
+                    <?php echo $habit->displayTracker(); ?>
               </li>
           <?php }
           } ?>
@@ -120,10 +105,6 @@
 			<div class="form-group">
 			<label for="">Choose a label for your new habit!</label>  <i class="fa-hidden fas fa-exclamation-circle"></i>
       <?php echo $dropdown; ?>
-				<!-- <select name="category" id="categoryInput" class="form-control" placeholer="Category">
-					<option default disabled selected>Category</option>
-					<option value="10000">New Category</option>
-				</select> -->
 			</div>
       <button id="newHabitSubmit"  type="submit" class="btn btn-primary">Submit</button>
     </form>
