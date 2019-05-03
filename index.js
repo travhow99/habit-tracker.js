@@ -1,7 +1,7 @@
 $(document).ready(function() {
   checkBoxes();
 
-  $('.add-button').click(function() {
+  $('.add-btn').click(function() {
     $(this).siblings('.confirm-btn').show();
     $(this).siblings('.habit-goal').css('display', 'inline-block');
     const $input = $(this).siblings('.habit-name').addClass('editable');

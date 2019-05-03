@@ -78,7 +78,7 @@
             </div>
           </div>
           <a class="btn btn-link confirm-btn">Confirm</a>
-          <a class="btn btn-primary add-button"><i class="fas fa-plus-circle"></i></a>
+          <a class="btn btn-primary add-btn"><i class="fas fa-plus-circle"></i></a>
         </div>
       </div>
     <?php } ?>
