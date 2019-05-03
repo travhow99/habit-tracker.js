@@ -16,10 +16,12 @@ $(document).ready(function() {
     console.log($category);
 
     $.post('new-habit.php', {name: $newHabit, goal: $habitGoal, category: $category}, function(data) {
-
+      location.reload();
     }).fail(function() {
       alert( "Posting failed." );
     });
+
+
 
   });
 
