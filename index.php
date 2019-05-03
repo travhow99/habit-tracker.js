@@ -71,7 +71,17 @@
           } ?>
         </ul>
         <div class="add-row">
-          <input class="habit-name">&nbsp;</input>
+          <input class="habit-name">
+          <div class="habit-goal">
+            <div class="input-group spinner">
+              <input type="text" class="form-control" value="1">
+              <div class="input-group-btn-vertical">
+                <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+                <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+              </div>
+            </div>
+          </div>
+          <a class="btn btn-link confirm-btn">Confirm</a>
           <a class="btn btn-primary add-button"><i class="fas fa-plus-circle"></i></a>
         </div>
       </div>

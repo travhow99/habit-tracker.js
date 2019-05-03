@@ -2,7 +2,10 @@ $(document).ready(function() {
   checkBoxes();
 
   $('.add-button').click(function() {
-    $(this).siblings('.habit-name').addClass('editable');
+    $(this).siblings('.confirm-btn').show();
+    $(this).siblings('.habit-goal').css('display', 'inline-block');
+    const $input = $(this).siblings('.habit-name').addClass('editable');
+    $input.focus();
   });
 
   $('.tracker-toggle').click(function(){
@@ -22,6 +25,8 @@ $(document).ready(function() {
         day: $(this).attr('for'),
         checked: +!isChecked,
       }
+
+      // Should use `id` rather than name
 
       data.name = $habit;
 
@@ -134,3 +139,12 @@ function checkBoxes() {
   console.log('check');
   $('.active').prop('checked', true);
 };
+
+(function ($) {
+  $('.spinner .btn:first-of-type').on('click', function() {
+    $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
+  });
+  $('.spinner .btn:last-of-type').on('click', function() {
+    $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
+  });
+})(jQuery);
