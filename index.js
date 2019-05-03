@@ -8,6 +8,21 @@ $(document).ready(function() {
     $input.focus();
   });
 
+  $('.confirm-btn').click(function() {
+    const $newHabit = $(this).siblings('.habit-name.editable').val();
+    const $habitGoal = $(this).siblings('.habit-goal').find('input').val();
+    const $category = $(this).parents('.category').children('h3').text();
+
+    console.log($category);
+
+    $.post('new-habit.php', {name: $newHabit, goal: $habitGoal, category: $category}, function(data) {
+
+    }).fail(function() {
+      alert( "Posting failed." );
+    });
+
+  });
+
   $('.tracker-toggle').click(function(){
       // see if checked      
       let isChecked = $(this).hasClass('active');
@@ -33,7 +48,7 @@ $(document).ready(function() {
 
 
 
-    $.post('habit-form.php', data, function(data){
+    $.post('habit-form.php', data, function(data) {
 
       }).fail(function() {
 
