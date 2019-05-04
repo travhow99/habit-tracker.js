@@ -57,7 +57,7 @@
           <?php
           foreach ($habits as $habit) {
             if ($category == $habit->cat) { ?>
-            <li data-id=<?php echo $habit->showId(); ?>>
+            <li data-id=<?php echo $habit->showId(); ?> data-category=<?php echo $habit->cat; ?>>
               <div class="habit-name">
                 <span class="habit-title"><?php echo $habit->getName(); ?></span><?php echo $habit->showGoal(); ?>
                 <a class="edit-btn"><sup class="fa fa-edit"></sup></a>
@@ -131,6 +131,8 @@
       <?php echo $dropdown; ?>
 			</div>
       <button id="editHabitSubmit"  type="submit" class="btn btn-primary">Submit</button>
+      <button type="button" class="btn btn-danger">Cancel</button>
+      
     </form>
   </div>
 

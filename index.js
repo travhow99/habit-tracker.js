@@ -25,23 +25,27 @@ $(document).ready(function() {
   $('.edit-btn').click(function() {
     const $habitName = $(this).siblings('.habit-title').text();
     const $habitId = $(this).parents('li').data('id');
-    console.log($habitId);
+    const $currentCategory = $(this).parents('li').data('category');
 
     $('.edit-form, .overlay').show();
-    $('.edit-form form').attr('data-id', $habitId);
+    $('.edit-form').attr('data-id', $habitId);
     $('.current-habit').text($habitName);
+    // Make $currentCategory :selected
+    // Currently .category-input from PHP, need to change to class
     
   });
 
   $('#editHabitSubmit').click(function(event) {
     event.preventDefault();
+
+    const $habitId = $('.edit-form').data('id');
     
-    const $name = $('.habit-form input[name="name"]').val();
-    const $nameField = $('.habit-form input[name="name"]').parent();
-    const $goal = $('.habit-form input[name="goal"]').val();
-    const $goalField = $('.habit-form input[name="goal"]').parent();
-    const $category = $('#categoryInput').val();
-    const $categoryField = $('#categoryInput').parent();
+    const $name = $('.edit-form input[name="name"]').val();
+    const $nameField = $('.edit-form input[name="name"]').parent();
+    const $goal = $('.edit-form input[name="goal"]').val();
+    const $goalField = $('.edit-form input[name="goal"]').parent();
+    const $category = $('.category-input').val();
+    const $categoryField = $('.category-input').parent();
     const $newCategory = $('#newCategoryInput input').val();
     const $newCategoryField = $('#newCategoryInput');
 
@@ -51,7 +55,7 @@ $(document).ready(function() {
       formInput.push({input: $newCategory, field: $newCategoryField});
     }
 
-    console.log(formInput);
+/*     Validation not needed for this form due to optional fields
 
     let error = false;
 
@@ -68,18 +72,17 @@ $(document).ready(function() {
 
     if (error) {
       return false;
-    }
-
-    console.log($newCategory);
+    } */
 
     const data = {
+      id: $habitId,
       name: $name,
       goal: $goal,
       category: $newCategory ? $newCategory : $category,
     }
     console.log(data);
 
-    $.post('new-habit.php', data, function(data){
+    /* $.post('new-habit.php', data, function(data){
 
 
       // show the response
@@ -92,11 +95,11 @@ $(document).ready(function() {
           // just in case posting your form failed
           alert( "Posting failed." );
 
-      });
+      }); */
       //location.reload();
 
       $('.overlay').hide();
-      $('.habit-form').hide();
+      $('.edit-form').hide();
 
      });
 
@@ -146,7 +149,7 @@ $(document).ready(function() {
       $('.habit-form, .edit-form').hide();
     });
 
-    $('#categoryInput').change(function() {
+    $('.category-input').change(function() {
       const categoryInput = `<div class="form-group" id="newCategoryInput">
       <label for="">Enter a name for your new category:</label>  <i class="fa-hidden fas fa-exclamation-circle"></i>
       <input type="text" name="category" class="form-control" id="" placeholder="New Category">
@@ -166,8 +169,8 @@ $(document).ready(function() {
       const $nameField = $('.habit-form input[name="name"]').parent();
       const $goal = $('.habit-form input[name="goal"]').val();
       const $goalField = $('.habit-form input[name="goal"]').parent();
-      const $category = $('#categoryInput').val();
-      const $categoryField = $('#categoryInput').parent();
+      const $category = $('.category-input').val();
+      const $categoryField = $('.category-input').parent();
       const $newCategory = $('#newCategoryInput input').val();
       const $newCategoryField = $('#newCategoryInput');
 

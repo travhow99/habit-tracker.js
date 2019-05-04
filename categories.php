@@ -6,7 +6,7 @@
 
   $categories = array();
 
-  $dropdown = '<select name="category" id="categoryInput" class="form-control" placeholer="Category">';
+  $dropdown = '<select name="category" class="category-input form-control" placeholer="Category">';
 
   while ($row=mysqli_fetch_array($result)) {
     $dropdown.="<option value='{$row[category]}'>{$row[category]}</option>";
