@@ -57,9 +57,10 @@
           <?php
           foreach ($habits as $habit) {
             if ($category == $habit->cat) { ?>
-            <li>
+            <li data-id=<?php echo $habit->showId(); ?>>
               <div class="habit-name">
                 <span class="habit-title"><?php echo $habit->getName(); ?></span><?php echo $habit->showGoal(); ?>
+                <a class="edit-btn"><sup class="fa fa-edit"></sup></a>
               </div>
                     <?php echo $habit->displayTracker(); ?>
               </li>
@@ -103,14 +104,38 @@
 			</div>
 			
 			<div class="form-group">
-			<label for="">Choose a label for your new habit!</label>  <i class="fa-hidden fas fa-exclamation-circle"></i>
+			<label for="">Choose a category for your new habit!</label>  <i class="fa-hidden fas fa-exclamation-circle"></i>
       <?php echo $dropdown; ?>
 			</div>
       <button id="newHabitSubmit"  type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
+
+    <!-- Edit form !-->
+    <div class="edit-form">          
+    <form><!--  action="edit-habit.php" method="POST" role="form"> -->
+      <legend>Edit habit <strong class="current-habit"></strong>?</legend>
+    
+      <div class="form-group">
+        <label for="">New habit name?</label>  <i class="fa-hidden fas fa-exclamation-circle"></i>
+        <input type="text" name="name" class="form-control" id="" placeholder="New Habit Name">
+      </div>
+
+      <div class="form-group">
+        <label for="">New habit goal?</label>  <i class="fa-hidden fas fa-exclamation-circle"></i>
+        <input type="number" name="goal" class="form-control" id="" placeholder="New Habit Goal">
+			</div>
+			
+			<div class="form-group">
+			<label for="">Move to a new category?</label>  <i class="fa-hidden fas fa-exclamation-circle"></i>
+      <?php echo $dropdown; ?>
+			</div>
+      <button id="editHabitSubmit"  type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
   <div class="overlay">
-          <a class="close-button"><i class="fas fa-times-circle fa-2x"></i></a>
+    <a class="close-button"><i class="fas fa-times-circle fa-2x"></i></a>
   </div>
 
   <script type="text/javascript" src="index.js"></script>

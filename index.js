@@ -20,10 +20,85 @@ $(document).ready(function() {
     }).fail(function() {
       alert( "Posting failed." );
     });
-
-
-
   });
+
+  $('.edit-btn').click(function() {
+    const $habitName = $(this).siblings('.habit-title').text();
+    const $habitId = $(this).parents('li').data('id');
+    console.log($habitId);
+
+    $('.edit-form, .overlay').show();
+    $('.edit-form form').attr('data-id', $habitId);
+    $('.current-habit').text($habitName);
+    
+  });
+
+  $('#editHabitSubmit').click(function(event) {
+    event.preventDefault();
+    
+    const $name = $('.habit-form input[name="name"]').val();
+    const $nameField = $('.habit-form input[name="name"]').parent();
+    const $goal = $('.habit-form input[name="goal"]').val();
+    const $goalField = $('.habit-form input[name="goal"]').parent();
+    const $category = $('#categoryInput').val();
+    const $categoryField = $('#categoryInput').parent();
+    const $newCategory = $('#newCategoryInput input').val();
+    const $newCategoryField = $('#newCategoryInput');
+
+    const formInput = [{input: $name, field: $nameField}, {input: $goal, field: $goalField}, {input: $category, field: $categoryField}];
+    
+    if ($('#newCategoryInput').length) {
+      formInput.push({input: $newCategory, field: $newCategoryField});
+    }
+
+    console.log(formInput);
+
+    let error = false;
+
+    for (let x in formInput) {
+      let {input, field} = formInput[x];
+
+      if (input === "" || input === null) {
+        field.addClass('input-error');
+        field.children('.fa-exclamation-circle').removeClass('fa-hidden');
+        console.log('danger');
+        error = true;
+      }
+    }
+
+    if (error) {
+      return false;
+    }
+
+    console.log($newCategory);
+
+    const data = {
+      name: $name,
+      goal: $goal,
+      category: $newCategory ? $newCategory : $category,
+    }
+    console.log(data);
+
+    $.post('new-habit.php', data, function(data){
+
+
+      // show the response
+      //$('#response').html(data);
+        //console.log(`${$checkedLength}`);
+      }).done(function() {
+        location.reload();
+      }).fail(function() {
+
+          // just in case posting your form failed
+          alert( "Posting failed." );
+
+      });
+      //location.reload();
+
+      $('.overlay').hide();
+      $('.habit-form').hide();
+
+     });
 
   $('.tracker-toggle').click(function(){
       // see if checked      
@@ -68,7 +143,7 @@ $(document).ready(function() {
 
     $('.close-button').click(function() {
       $('.overlay').hide();
-      $('.habit-form').hide();
+      $('.habit-form, .edit-form').hide();
     });
 
     $('#categoryInput').change(function() {

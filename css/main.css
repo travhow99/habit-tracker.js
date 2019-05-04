@@ -111,8 +111,8 @@ input.habit-name.editable {
   margin-bottom: 20px;
 }
 
-.habit-form {
-    position: absolute;
+.habit-form, .edit-form {
+    position: fixed;
     display: none;
     top: 50px;
     background: white;
